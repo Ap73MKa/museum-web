@@ -1,0 +1,14 @@
+---
+import Hero from "./hero.astro"
+import { Equipment } from "./equipment"
+import Prices from "./prices.astro"
+import { AboutUs } from "./about-us"
+
+---
+
+<div class="w-screen">
+    <Hero />
+    <!-- <AboutUs client:idle /> -->
+    <Equipment client:idle />
+    <Prices />
+</div>

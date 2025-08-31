@@ -1,0 +1,28 @@
+---
+type Props = {
+  price: string
+  title: string
+  description: string[]
+}
+
+const {price, title, description} = Astro.props;
+
+import { ContactUsSheet } from "./contact-us-sheet";
+---
+
+<div class="grid sm:grid-cols-[3fr_1fr_1fr] py-4 grid-cols-[3fr_1fr]">
+    <div class="flex flex-col gap-1">
+        <p class="text-lg md:text-2xl">{title}</p>
+        <ul class="flex flex-col text-muted-foreground text-xs">
+            {description.map((item) => (
+                <li>{item}</li>
+            ))}
+        </ul>
+    </div>
+    <div class="flex items-center justify-center text-base md:text-xl">
+        {price}
+    </div>
+    <div class="sm:flex items-center justify-center hidden">
+        <ContactUsSheet client:idle className="text-primary text-lg" text="ЗАКАЗАТЬ" />
+    </div>
+</div>
